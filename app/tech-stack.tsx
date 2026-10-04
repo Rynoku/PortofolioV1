@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image"
+import { publicPath } from "@/lib/public-path"
 import FadeDown from "@/components/animations/FadeDown"
 import FadeUp from "@/components/animations/FadeUp"
 
@@ -31,7 +32,7 @@ export default function TechStack() {
                         tech.svg.startsWith("<") ? (
                           <div className="w-full h-full" dangerouslySetInnerHTML={{ __html: tech.svg }} />
                         ) : (
-                          <Image src={tech.svg} alt={tech.name} width={48} height={48} className="w-full h-full tech-icon-img" />
+                          <Image src={publicPath(tech.svg)} alt={tech.name} width={48} height={48} className="w-full h-full tech-icon-img" />
                         )
                       ) : (
                         <div className="w-full h-full flex items-center justify-center font-bold text-xl bg-thirdary/50 rounded-lg">{tech.name.charAt(0)}</div>
@@ -54,10 +55,10 @@ const techCategories = [
     title: "Frontend",
     description: "Frameworks and libraries for building interactive user interfaces.",
     technologies: [
-      { name: "React.js", svg: "/icons/react.svg" },
-      { name: "Next.js", svg: "/icons/nextjs.svg" },
-      { name: "Tailwind CSS", svg: "/icons/tailwindcss.svg" },
-      { name: "HTML5", svg: "/icons/html5.svg" },
+      { name: "React.js", svg: "/icons/react-new.svg" },
+      { name: "Next.js", svg: "/icons/nextjs-new.svg" },
+      { name: "Tailwind CSS", svg: "/icons/tailwind-css-new.svg" },
+      { name: "HTML5", svg: "/icons/html5-new.svg" },
       { name: "CSS3", svg: "/icons/css3-mono.svg" },
       { name: "Framer Motion", svg: "/icons/framer.svg" },
     ],
@@ -66,11 +67,11 @@ const techCategories = [
     title: "Backend",
     description: "Server-side technologies and frameworks.",
     technologies: [
-      { name: "Node.js", svg: "/icons/nodedotjs.svg" },
+      { name: "Node.js", svg: "/icons/nodejs-new.svg" },
       { name: "Express.js", svg: "/icons/express.svg" },
       { name: "Go (Golang)", svg: "/icons/go.svg" },
       { name: "Fiber", svg: "/icons/fiber.svg" },
-      { name: "Laravel", svg: "/icons/laravel.svg" },
+      { name: "Laravel", svg: "/icons/laravel-new.svg" },
     ],
   },
   {
@@ -78,8 +79,8 @@ const techCategories = [
     description: "Database management systems and Object-Relational Mappers.",
     technologies: [
       { name: "MySQL", svg: "/icons/mysql.svg" },
-      { name: "PostgreSQL", svg: "/icons/postgresql.svg" },
-      { name: "MongoDB", svg: "/icons/mongodb.svg" },
+      { name: "PostgreSQL", svg: "/icons/postgresql-new.svg" },
+      { name: "MongoDB", svg: "/icons/mongodb-new.svg" },
       { name: "Prisma ORM", svg: "/icons/prisma.svg" },
     ],
   },
@@ -87,12 +88,12 @@ const techCategories = [
     title: "Tools & Infrastructure",
     description: "Development tools, version control, and deployment.",
     technologies: [
-      { name: "Git", svg: "/icons/git.svg" },
-      { name: "GitHub", svg: "/icons/github.svg" },
-      { name: "Docker", svg: "/icons/docker.svg" },
-      { name: "Linux", svg: "/icons/linux.svg" },
-      { name: "Nginx", svg: "/icons/nginx.svg" },
-      { name: "Postman", svg: "/icons/postman.svg" },
+      { name: "Git", svg: "/icons/git-new.svg" },
+      { name: "GitHub", svg: "/icons/github-new.svg" },
+      { name: "Docker", svg: "/icons/docker-new.svg" },
+      { name: "Linux", svg: "/icons/linux-new.svg" },
+      { name: "Nginx", svg: "/icons/nginx-new.svg" },
+      { name: "Postman", svg: "/icons/postman-new.svg" },
     ],
   },
 ]

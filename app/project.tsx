@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image"
+import { publicPath } from "@/lib/public-path"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import FadeDown from "@/components/animations/FadeDown"
@@ -39,7 +40,7 @@ export default function Project() {
             <FadeUp key={`desktop-${index}`}>
               <GlareHover className="group flex flex-col h-full bg-background border border-text-secondary/20 hover:border-text-primary/50 rounded-xl overflow-hidden transition-all duration-500 shadow-sm hover:shadow-2xl">
                 <div className="relative overflow-hidden aspect-16/10 bg-text-secondary/5 border-b border-text-secondary/10">
-                  <Image src={project.imagePath} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
+                  <Image src={publicPath(project.imagePath)} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
 
                   {/* Tech Stack Overlay */}
                   <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-2.5 group-hover:translate-y-0">
@@ -88,7 +89,7 @@ export default function Project() {
                 <div key={`mobile1-${index}`} className="w-[85vw] sm:w-100 shrink-0">
                   <GlareHover className="group flex flex-col h-full bg-background border border-text-secondary/20 hover:border-text-primary/50 rounded-xl overflow-hidden transition-all duration-500 shadow-sm hover:shadow-2xl">
                     <div className="relative overflow-hidden aspect-16/10 bg-text-secondary/5 border-b border-text-secondary/10">
-                      <Image src={project.imagePath} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
+                      <Image src={publicPath(project.imagePath)} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
 
                       {/* Tech Stack Overlay */}
                       <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-2.5 group-hover:translate-y-0">
@@ -134,7 +135,7 @@ export default function Project() {
                 <div key={`mobile2-${index}`} className="w-[85vw] sm:w-100 shrink-0">
                   <GlareHover className="group flex flex-col h-full bg-background border border-text-secondary/20 hover:border-text-primary/50 rounded-xl overflow-hidden transition-all duration-500 shadow-sm hover:shadow-2xl">
                     <div className="relative overflow-hidden aspect-16/10 bg-text-secondary/5 border-b border-text-secondary/10">
-                      <Image src={project.imagePath} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
+                      <Image src={publicPath(project.imagePath)} alt={project.title} fill className="object-cover transition-all duration-700 group-hover:scale-105" />
 
                       {/* Tech Stack Overlay */}
                       <div className="absolute top-4 right-4 flex flex-wrap gap-2 justify-end z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-2.5 group-hover:translate-y-0">
@@ -287,7 +288,7 @@ const projectList = [
     features: ["Interactive Animations", "Responsive Design", "Modern UI/UX"],
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/Rynoku/portofolioV1",
-    liveDemoUrl: "https://fakhrii.my.id",
+    liveDemoUrl: "https://rynoku.github.io/PortofolioV1/",
     isPrivateRepo: false,
   },
 ]

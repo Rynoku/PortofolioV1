@@ -115,7 +115,7 @@ export default function Header() {
               </button>
             </div>
 
-            <div className={`${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"} md:hidden transform absolute top-16 right-4 z-50 origin-top-right transition-all duration-300 ease-in-out`}>
+            <div className={`${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"} lg:hidden transform absolute top-16 right-4 z-50 origin-top-right transition-all duration-300 ease-in-out`}>
               {/* Mobile Menu Placeholder */}
               <div className="flex flex-col gap-6 bg-background/95 backdrop-blur-md border border-text-secondary/10 p-6 rounded-2xl shadow-xl w-48">
                 {shortCut.map((item, index) => (

@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next"
 
+export const dynamic = "force-static"
+
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://ryhar.my.id"
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://rynoku.github.io/PortofolioV1"
 
   return {
     rules: {

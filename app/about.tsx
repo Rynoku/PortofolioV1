@@ -3,6 +3,7 @@ import FadeDown from "@/components/animations/FadeDown"
 import Fade from "@/components/animations/Fade"
 import FadeLeft from "@/components/animations/FadeLeft"
 import Image from "next/image"
+import { publicPath } from "@/lib/public-path"
 
 export default function About() {
   const velocity = 50
@@ -24,7 +25,7 @@ export default function About() {
               <Fade>
                 <div className="relative z-10 p-2 bg-background border border-text-secondary/10 rounded-3xl shadow-2xl overflow-hidden aspect-4/5 w-full group transition-all duration-500 hover:shadow-[0_20px_40px_-5px_rgb(0,0,0,0.15)] dark:hover:shadow-[0_20px_40px_-5px_rgba(255,255,255,0.05)] hover:-translate-y-1">
                   <Image 
-                    src="/images/profile1.jpg" 
+                    src={publicPath("/images/profile1.jpg")} 
                     alt="Fakhri Ibadil Kirom" 
                     fill 
                     className="object-cover transition-all duration-700 scale-100 group-hover:scale-105" 

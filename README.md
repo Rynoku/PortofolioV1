@@ -4,7 +4,7 @@ A modern, interactive, and responsive personal portfolio website built to showca
 
 ## 🌐 Live Demo
 
-Check out the live website here: **[https://fakhrii.my.id](https://fakhrii.my.id)**
+Check out the live website here: **[https://rynoku.github.io/PortofolioV1/](https://rynoku.github.io/PortofolioV1/)**
 
 ## 🚀 Features
 
@@ -44,6 +44,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🚀 Deploying to GitHub Pages
+
+The `Deploy to GitHub Pages` workflow builds the site as a static export and publishes it at
+**[https://rynoku.github.io/PortofolioV1/](https://rynoku.github.io/PortofolioV1/)** whenever changes are pushed to `main`.
+In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+
+GitHub Pages only hosts static files. The AI chat and email API routes need a server and are not available on this deployment.
 
 ## 📁 Project Structure
 

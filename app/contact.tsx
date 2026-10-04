@@ -139,7 +139,7 @@ Gunakan panduan informasi berikut tentang Fakhri untuk menjawab pertanyaan:
    - Belum pernah
 
 4. **Proyek Utama**:
-   - Fakhri Portfolio (fakhrii.my.id) - Website portofolio pribadi.
+   - Fakhri Portfolio (rynoku.github.io/PortofolioV1/) - Website portofolio pribadi.
 
 Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada di profil ini, dan selalu bersikap ramah.`
       },

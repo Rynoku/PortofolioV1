@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import "../styles/globals.css"
 import PageLoader from "@/components/PageLoader"
+import { publicPath } from "@/lib/public-path"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://fakhrii.my.id"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://rynoku.github.io/PortofolioV1/"),
   title: {
     default: "Fakhri | Portfolio",
     template: "%s | Fakhri Portfolio",
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Fakhri Portfolio",
     images: [
       {
-        url: "/images/profile.jpg",
+        url: publicPath("/images/profile.jpg"),
         width: 1200,
         height: 630,
         alt: "Fakhri Portfolio",
@@ -39,13 +40,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fakhri | Portfolio",
     description: "Personal portfolio of Fakhri. Software Developer specializing in Next.js, Node.js, and modern web development.",
-    images: ["/images/profile.jpg"],
+    images: [publicPath("/images/profile.jpg")],
     creator: "@Rynoku",
   },
   icons: {
-    icon: "/images/cat-scuba.gif",
-    shortcut: "/images/cat-scuba.gif",
-    apple: "/images/cat-scuba.gif",
+    icon: publicPath("/images/cat-scuba.gif"),
+    shortcut: publicPath("/images/cat-scuba.gif"),
+    apple: publicPath("/images/cat-scuba.gif"),
   },
   alternates: {
     canonical: "/",

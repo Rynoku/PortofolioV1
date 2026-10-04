@@ -1,11 +1,13 @@
 import { MetadataRoute } from "next"
 
+export const dynamic = "force-static"
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://fakhrii.my.id"
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://rynoku.github.io/PortofolioV1"
 
   return [
     {
-      url: `${baseUrl}`,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
