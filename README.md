@@ -53,6 +53,8 @@ In the repository settings, set **Pages → Build and deployment → Source** to
 
 GitHub Pages only hosts static files. The AI chat and email API routes need a server and are not available on this deployment.
 
+To enable the AI chat on GitHub Pages, deploy this project to Vercel as its API backend and set the `NVIDIA_APIKEY` environment variable there. In GitHub repository settings, add the Actions variable `NEXT_PUBLIC_CHAT_API_URL` with the Vercel endpoint (for example, `https://your-project.vercel.app/api/chat`), then rerun the Pages workflow. The chat API allows requests from `https://rynoku.github.io`; set `PORTFOLIO_ORIGIN` on Vercel only if the Pages origin changes.
+
 ## 📁 Project Structure
 
 - `app/`: Next.js App Router pages and layouts.

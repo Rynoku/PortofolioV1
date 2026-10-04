@@ -31,6 +31,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_PAGES: "true"
+          NEXT_PUBLIC_CHAT_API_URL: ${{ vars.NEXT_PUBLIC_CHAT_API_URL }}
       - name: Add .nojekyll
         run: touch out/.nojekyll
       - name: Upload Pages artifact

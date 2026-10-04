@@ -1,18 +1,55 @@
 import { NextRequest, NextResponse } from "next/server"
-export const runtime = 'edge'
 import OpenAI from 'openai'
+
+export const runtime = "nodejs"
 
 interface HistoryEntry {
   role: "system" | "user" | "assistant"
   content: string
 }
 
+const portfolioOrigin = process.env.PORTFOLIO_ORIGIN || "https://rynoku.github.io"
+
+function getCorsHeaders(origin: string | null): Headers {
+  const headers = new Headers({ Vary: "Origin" })
+
+  if (origin === portfolioOrigin || (process.env.NODE_ENV === "development" && origin === "http://localhost:3000")) {
+    headers.set("Access-Control-Allow-Origin", origin)
+    headers.set("Access-Control-Allow-Methods", "POST, OPTIONS")
+    headers.set("Access-Control-Allow-Headers", "Content-Type")
+  }
+
+  return headers
+}
+
+export async function OPTIONS(req: NextRequest) {
+  const origin = req.headers.get("origin")
+  if (origin !== portfolioOrigin && !(process.env.NODE_ENV === "development" && origin === "http://localhost:3000")) {
+    return new Response(null, { status: 403, headers: getCorsHeaders(origin) })
+  }
+
+  return new Response(null, { status: 204, headers: getCorsHeaders(origin) })
+}
+
 export async function POST(req: NextRequest) {
+  const origin = req.headers.get("origin")
+  const corsHeaders = getCorsHeaders(origin)
+
+  if (origin && !corsHeaders.has("Access-Control-Allow-Origin")) {
+    return NextResponse.json(
+      { success: false, message: "Origin is not allowed" },
+      { status: 403, headers: corsHeaders },
+    )
+  }
+
   try {
     const { text, history = [] }: { text: string; history: HistoryEntry[] } = await req.json()
 
     if (!text) {
-      return NextResponse.json({ success: false, message: "Pesan tidak boleh kosong" }, { status: 400 })
+      return NextResponse.json(
+        { success: false, message: "Pesan tidak boleh kosong" },
+        { status: 400, headers: corsHeaders },
+      )
     }
 
     const apiKey = process.env.NVIDIA_APIKEY
@@ -31,11 +68,11 @@ export async function POST(req: NextRequest) {
       ].join("\n")
 
       return new Response(fallbackText, {
-        headers: {
+        headers: new Headers({
+          ...Object.fromEntries(corsHeaders),
           "Content-Type": "text/plain; charset=utf-8",
           "Cache-Control": "no-cache, no-transform",
-          "Connection": "keep-alive"
-        }
+        }),
       })
     }
 
@@ -77,15 +114,18 @@ export async function POST(req: NextRequest) {
     });
 
     return new Response(readable, {
-      headers: {
+      headers: new Headers({
+        ...Object.fromEntries(corsHeaders),
         "Content-Type": "text/plain; charset=utf-8",
         "Cache-Control": "no-cache, no-transform",
-        "Connection": "keep-alive"
-      }
+      }),
     });
 
   } catch (error) {
     console.error("Chat API Error:", error)
-    return NextResponse.json({ success: false, message: "Gagal terhubung ke server AI." }, { status: 500 })
+    return NextResponse.json(
+      { success: false, message: "Gagal terhubung ke server AI." },
+      { status: 500, headers: corsHeaders },
+    )
   }
 }

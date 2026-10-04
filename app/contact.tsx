@@ -154,7 +154,8 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
     setIsChatLoading(true)
 
     try {
-      const response = await fetch("/api/chat", {
+      const chatApiUrl = process.env.NEXT_PUBLIC_CHAT_API_URL || "/api/chat"
+      const response = await fetch(chatApiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userText, history }),
@@ -175,7 +176,7 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
         } else {
           try {
             const text = await response.text()
-            if (text) errorMessage = text
+            if (text && !text.trimStart().startsWith("<")) errorMessage = text
           } catch {
             // Ignore parse failures and fall back to the default error message
           }
