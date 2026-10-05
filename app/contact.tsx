@@ -16,7 +16,7 @@ function createWelcomeMessage(): ChatMessage[] {
     {
       id: "welcome-msg",
       sender: "bot",
-      text: "Halo! Saya adalah asisten AI Fakhri. Ada yang bisa saya bantu terkait portofolio, pengalaman, atau project Fakhri?",
+      text: "Halo! Saya adalah AI Rynoku. Ada yang bisa saya bantu terkait portofolio, pengalaman, atau project Fakhri?",
       timestamp: new Date(),
     },
   ]
@@ -71,7 +71,9 @@ export default function Contact() {
     const savedMessages = localStorage.getItem("fakhri_chat_messages")
     if (savedMessages) {
       try {
-        initialMessages = parseStoredMessages(savedMessages)
+        initialMessages = parseStoredMessages(savedMessages).map(message =>
+          message.id === "welcome-msg" ? { ...message, text: createWelcomeMessage()[0].text } : message,
+        )
       } catch (error) {
         console.error("Failed to parse saved messages", error)
       }
@@ -113,7 +115,7 @@ export default function Contact() {
     const history = [
       {
         role: "system" as const,
-        content: `System Context: Kamu adalah Fakhri Assistant, asisten AI pribadi untuk Fakhri Ibadil Kirom (Fakhri). Tugasmu adalah menjawab pertanyaan pengunjung website portofolio Fakhri dengan ramah, profesional, dan informatif menggunakan bahasa Indonesia.
+        content: `System Context: Kamu adalah AI Rynoku, asisten AI pribadi untuk Fakhri Ibadil Kirom (Fakhri). Tugasmu adalah menjawab pertanyaan pengunjung website portofolio Fakhri dengan ramah, profesional, dan informatif menggunakan bahasa Indonesia.
         
 Gunakan panduan informasi berikut tentang Fakhri untuk menjawab pertanyaan:
 
@@ -386,7 +388,7 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-thirdary flex items-center justify-center text-text-primary font-black border border-text-secondary/10">AI</div>
               <div>
-                <h3 className="text-lg font-black text-text-primary tracking-tight leading-none">Fakhri Assistant</h3>
+                <h3 className="text-lg font-black text-text-primary tracking-tight leading-none">AI Rynoku</h3>
                 <span className="text-xs text-green-500 font-bold flex items-center gap-1 mt-1">
                   <span className="w-2 h-2 rounded-full bg-green-500 block animate-pulse"></span> Online
                 </span>

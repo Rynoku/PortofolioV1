@@ -14,15 +14,15 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     id: 1,
-    company: "Gita Muda Kirana",
-    role: "Penyanyi Tenor",
+    company: "Paduan Suara Gita Muda Kirana",
+    role: "Penyanyi",
     date: "2024 - present",
     description: "Berperan sebagai penyanyi tenor dalam grup paduan suara Gita Muda Kirana (GMK) pada kompetisi tingkat Kabupaten Bandung (2024). Berkontribusi aktif menyelaraskan harmoni vokal pada rentang nada tinggi tenor serta berkolaborasi secara intensif bersama tim selama proses latihan hingga penampilan.",
     skills: ["Tenor"],
   },
   {
     id: 2,
-    company: "Sometimes",
+    company: "Insyaallah",
     role: "Software Developer",
     date: "0000 - present",
     description: "Semoga bisa tercapai untuk menjadi Software Engineer di perusahaan ini, dan bisa mengembangkan skill saya lebih baik lagi.",

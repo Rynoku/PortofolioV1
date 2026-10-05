@@ -8,15 +8,20 @@ interface HistoryEntry {
   content: string
 }
 
-const portfolioOrigin = process.env.PORTFOLIO_ORIGIN || "https://rynoku.github.io"
+const configuredPortfolioOrigin = process.env.PORTFOLIO_ORIGIN || "https://rynoku.github.io"
+const portfolioOrigin = new URL(configuredPortfolioOrigin).origin
+
+function isAllowedOrigin(origin: string | null): origin is string {
+  return origin === portfolioOrigin || (process.env.NODE_ENV === "development" && origin === "http://localhost:3000")
+}
 
 function getCorsHeaders(origin: string | null): Headers {
   const headers = new Headers({ Vary: "Origin" })
 
-  if (origin === portfolioOrigin || (process.env.NODE_ENV === "development" && origin === "http://localhost:3000")) {
+  if (isAllowedOrigin(origin)) {
     headers.set("Access-Control-Allow-Origin", origin)
     headers.set("Access-Control-Allow-Methods", "POST, OPTIONS")
-    headers.set("Access-Control-Allow-Headers", "Content-Type")
+    headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization")
   }
 
   return headers
@@ -24,7 +29,7 @@ function getCorsHeaders(origin: string | null): Headers {
 
 export async function OPTIONS(req: NextRequest) {
   const origin = req.headers.get("origin")
-  if (origin !== portfolioOrigin && !(process.env.NODE_ENV === "development" && origin === "http://localhost:3000")) {
+  if (!isAllowedOrigin(origin)) {
     return new Response(null, { status: 403, headers: getCorsHeaders(origin) })
   }
 
@@ -55,7 +60,7 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.NVIDIA_APIKEY
     if (!apiKey) {
       const fallbackText = [
-        "Halo! Saya adalah asisten AI Fakhri.",
+        "Halo! Saya adalah AI Rynoku.",
         "Saat ini koneksi ke model AI sedang tidak tersedia, tapi Anda tetap bisa menanyakan hal-hal umum seputar profil, pengalaman, atau project Fakhri.",
         "",
         "Contoh pertanyaan yang bisa saya jawab:",
@@ -88,7 +93,7 @@ export async function POST(req: NextRequest) {
     ]
 
     const completion = await openai.chat.completions.create({
-      model: "thinkingmachines/inkling",
+      model: "nvidia/nemotron-3.5-lightning-30b-a3b",
       messages,
       temperature: 1,
       top_p: 0.7,
