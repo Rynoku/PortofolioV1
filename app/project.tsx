@@ -291,4 +291,16 @@ const projectList = [
     liveDemoUrl: "https://rynoku.github.io/PortofolioV1/",
     isPrivateRepo: false,
   },
+  {
+    index: 2,
+    imagePath: "/images/logo-batiqyunik.jpg",
+    title: "BatiQyunik",
+    shortDescription: "Karya seni batik bordir dari Batiqyunik merupakan perpaduan harmonis antara kekayaan motif batik tradisional/klasik dengan sentuhan bordir tangan (handmade / mesin manual) yang presisi.",
+    createdAt: "2026-08-13",
+    features: ["Responsive Design", "Modern UI/UX"],
+    tech: ["Next.js", "Tailwind CSS"],
+    githubUrl: "https://github.com/Rynoku/BatiQyunik",
+    liveDemoUrl: "https://portofolio-v1-liard.vercel.app/",
+    isPrivateRepo: false,
+  },
 ]
