@@ -282,8 +282,8 @@ const projectList = [
   {
     index: 1,
     imagePath: "/images/logo-portofolio.jpg",
-    title: "Fakhri Portfolio",
-    shortDescription: "Developed a personal portfolio website with a modern, responsive design focused on user experience to showcase profile, skills, and completed projects.",
+    title: "Portfolio",
+    shortDescription: "Mengembangkan situs web portofolio pribadi dengan desain modern dan responsif yang berfokus pada pengalaman pengguna untuk menampilkan profil, keterampilan, dan proyek yang telah diselesaikan.",
     createdAt: "2026-07-20",
     features: ["Interactive Animations", "Responsive Design", "Modern UI/UX"],
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],

@@ -249,11 +249,11 @@ Aturan: Jawab langsung ke intinya, jangan menambahkan informasi yang tidak ada d
             {/* Google Maps Embed */}
             <div className="bg-background border border-text-secondary/20 rounded-3xl overflow-hidden h-100 lg:h-auto min-h-100 shadow-xl hover:border-text-primary transition-colors duration-500 relative group">
               <div className="absolute top-4 left-4 z-10 bg-background/90 backdrop-blur-md px-4 py-2 rounded-xl border border-text-secondary/20 shadow-lg pointer-events-none">
-                <p className="text-sm font-bold text-text-primary">📍 Batiqyunik</p>
+                <p className="text-sm font-bold text-text-primary">📍 Universitas Pasundan</p>
                 <p className="text-xs font-medium text-text-secondary">Bandung</p>
               </div>
               <iframe
-                src="https://maps.google.com/maps?q=BATIQYUNIK%20Soreang&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Universitas%20Pasundan&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700"
                 allowFullScreen
                 loading="lazy"
