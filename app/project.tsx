@@ -300,7 +300,7 @@ const projectList = [
     features: ["Responsive Design", "Modern UI/UX"],
     tech: ["Next.js", "Tailwind CSS"],
     githubUrl: "https://github.com/Rynoku/BatiQyunik",
-    liveDemoUrl: "https://portofolio-v1-liard.vercel.app/",
+    liveDemoUrl: "https://batiqyunik-store.vercel.app/",
     isPrivateRepo: false,
   },
 ]
